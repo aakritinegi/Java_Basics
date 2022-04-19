@@ -1,40 +1,104 @@
 package unit_02;
 
 /*
- * A Java package is a group of similar types of classes, interfaces and sub-packages.
- * Package in java can be categorized in two form
- *   1.built-in package(lang, awt, javax, swing, net, io, util, sql)
- *   2.user-defined package
- *   
- * Package also helps to avoid class name collisions
- * Package also helps us to maintain access protection in Java
- * Package are named in reverse order of domain names
- *   unit01.javaproject.com->"com.javaproject.unit01"
- *   
- * import java.util.vector; //Import the Vector class from util package
- * import java.util.*; //import all the classes from util package
+ * An Interface is a completely(100%) "abstract class",
+ * that is used to group related methods with empty bodies
  * 
- * Static Import:
- *   Static Import is a features introduced in Java programming language(Version 5 and above)
- *   that allows members(Fields and methods) defined in a class as public static
- *       to be used in java code without specifying the class in which the field is defined     
+ * Need of interface?
+ * multiple interface can be implemented at the same time in one class?
+ * 
+ * can an interface extends another interface?
+ * 
  */
 
-import static java.lang.System.*;
-import static java.lang.Math.*;
+// interface (100% Abstract Class)
+interface Animal{
+	public void animalSound(); // interface method (does not have a body)
+	public void run(); // interface method (does not have a body)
+}
 
-//import Unit01.SampleClass1;
-public class P11_Task02_ImportAndPackagesInJava {
+//Interface
+interface Human{
+	public void humanSound(); // interface method (does not have a body)
+	
+	public void run1(); // interface method (does not have a body)
+}
+
+public class P12_Task01_InterfaceInJava implements Animal {
+	
 	public static void main(String[] args) {
 		
-		out.println("Welcome to Package");
-		
-		out.println(sqrt(4));
-		System.out.println(pow(2,2));
-		System.out.println(abs(6.3));
-		
-		/*SampleClass1 obj=new SampleClass1();
-        System.out.println(obj.a);*/  
+		C1 obj=new C1();
+		obj.funcA();
+		obj.funcB();
+
 	}
 
+	public void animalSound() {
+		//TODO Auto-generated method stub
+	
+	}
+	
+	public void run() {
+		//TODO Auto-generated method stub
+	
+	}
+	
+}
+
+// Multiple interfaces can be implemented at the same time!
+class Species implements Animal, Human{
+	
+	@Override
+	public void animalSound() {
+		
+		System.out.println("We are inside animalSound Method");
+		
+	}
+	
+	@Override
+	public void run() {
+		
+		System.out.println("We are Inside run method");
+		
+	}
+	
+	@Override
+	public void humanSound() {
+		
+		System.out.println("We are inside humanSound");
+		
+	}
+	
+	@Override
+	public void run1() {
+		
+		System.out.println("We are Inside run1 method");
+		
+	}
+	
+	
+}
+
+interface A1{
+	
+	void funcA();
+	
+}
+
+interface B1 extends A1{
+	
+	void funcB();
+	
+}
+
+class C1 implements B1{
+	
+	public void funcA() {
+		System.out.println("This is funcA from A1");
+	}
+	
+	public void funcB() {
+		System.out.println("This is funcB from A2");
+	}
 }
