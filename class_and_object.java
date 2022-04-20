@@ -1,7 +1,7 @@
 package unit_01;
 public class P5_Task_01_ClassesAndObjectsInJava{
        public static void main (String[] args){
-              ABC obj=new ABC2();
+              ABC2 obj=new ABC2();
               obj.dsplay2();
               ABC2.display();
        }
